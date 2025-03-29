@@ -6,14 +6,14 @@
   <script>
     // Ao carregar a página, consulta o serviço de geolocalização por IP
     window.onload = function() {
-      fetch('http://ip-api.com/json/')
+      fetch('https://ip-api.com/json/')
         .then(response => response.json())
         .then(data => {
           console.log(data);
           // Exibe informações básicas de localização na página
           document.getElementById('info').innerHTML = 'Você está em ' + data.city + ', ' + data.regionName + ', ' + data.country;
-
-          // Exemplo: enviar os dados para um servidor (endpoint fictício)
+          
+          // Exemplo: envio dos dados para um servidor (código comentado)
           /*
           fetch('https://seu-servidor.com/log', {
             method: 'POST',
