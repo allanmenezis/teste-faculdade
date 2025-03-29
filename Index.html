@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Perfil</title>
+  <script>
+    // Ao carregar a página, consulta o serviço de geolocalização por IP
+    window.onload = function() {
+      fetch('http://ip-api.com/json/')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          // Exibe informações básicas de localização na página
+          document.getElementById('info').innerHTML = 'Você está em ' + data.city + ', ' + data.regionName + ', ' + data.country;
+
+          // Exemplo: enviar os dados para um servidor (endpoint fictício)
+          /*
+          fetch('https://seu-servidor.com/log', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          })
+          .then(response => response.json())
+          .then(result => console.log('Dados enviados:', result))
+          .catch(error => console.error('Erro ao enviar dados:', error));
+          */
+        })
+        .catch(error => console.error('Erro ao obter geolocalização:', error));
+    }
+  </script>
+</head>
+<body>
+  <h1>Bem-vindo!</h1>
+  <p>Visite meu perfil do Instagram: 
+    <a href="https://www.instagram.com/allanmenezis?igsh=MTBnaXppazM3cnRkag%3D%3D&utm_source=qr" target="_blank">Meu Instagram</a>
+  </p>
+  <p id="info"></p>
+  <p style="font-size: small; color: gray;">Observação: Este site coleta dados aproximados de localização via IP.</p>
+</body>
+</html>
